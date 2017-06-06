@@ -29,5 +29,4 @@ deploy:
 
     - script:
         name: rsync
-        code: |
-          rsync -azvv --delete -e "ssh -v -p 47022 -i $DEPLOY -o StrictHostKeyChecking=no -o UserKnownHostsFile=no" $WERCKER_ROOT/* pi@60.119.182.188:/wercker
+        code: rsync -azvv --delete -e "ssh -v -p 47022 -i $DEPLOY -o StrictHostKeyChecking=no -o UserKnownHostsFile=no" $WERCKER_ROOT/* pi@60.119.182.188:/wercker
