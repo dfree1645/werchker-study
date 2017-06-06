@@ -1,0 +1,3 @@
+package: github.com/dfree1645/wercker-study
+import:
+- package: github.com/gin-gonic/gin
