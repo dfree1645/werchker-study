@@ -9,10 +9,6 @@ build:
             code: make deps
 
         - script:
-            name: lint
-            code: make lint
-
-        - script:
             name: go test
             code: make test
 
