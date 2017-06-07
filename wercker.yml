@@ -15,6 +15,11 @@ build:
         - script:
             name: go build
             code: make build
+
+        - script:
+            name: copy binary
+            code: cp ./outBinary $WERCKER_OUTPUT_DIR
+
 deploy:
   steps:
     - script:
@@ -29,4 +34,4 @@ deploy:
 
     - script:
         name: rsync
-        code: rsync -azvv --delete -e "ssh -v -p $SERVER_PORT -i $DEPLOY -o StrictHostKeyChecking=no -o UserKnownHostsFile=no" $WERCKER_ROOT/* $USER@$SERVER_HOST:~/wercker
+        code: rsync -azvv --delete -e "ssh -v -p $SERVER_PORT -i $DEPLOY -o StrictHostKeyChecking=no -o UserKnownHostsFile=no" $WERCKER_OUTPUT_DIR/* $USER@$SERVER_HOST:~/wercker
